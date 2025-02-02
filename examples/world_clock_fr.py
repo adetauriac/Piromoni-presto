@@ -77,7 +77,7 @@ if sync_ntp():
     print("L'heure système est maintenant synchronisée.")
 else:
     print("Utilisation de l'heure locale en secours.")
-#ntptime.settime()
+
 
 # adjust utc time by offset hours
 def adjust_to_timezone(rtc_datetime, offset_hours):
@@ -260,10 +260,10 @@ def approx_time_fr(hours, minutes,ampm):
 def update_coord():
     global time_string
     # grab the current time from the ntp server and update the Pico RTC
-    try:
-        ntptime.settime()
-    except OSError:
-        print("Unable to contact NTP server")
+ #   try:
+ #       ntptime.settime()
+ #   except OSError:
+ #       print("Unable to contact NTP server")
 
     current_t = rtc.datetime()
     #time_string = approx_time(current_t[4] - 12 if current_t[4] > 12 else current_t[4], current_t[5])
